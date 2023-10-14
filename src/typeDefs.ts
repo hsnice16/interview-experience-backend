@@ -12,7 +12,18 @@ export const typeDefs = `#graphql
     profile: String!
   }
 
+  type Organisation {
+    _id: ID!
+    name: String!
+    blogCount: Int!
+  }
+
+  input BlogFilter {
+    forOrganisation: String!
+  }
+
   type Query {
-    blogs(limit: Int, offset: Int = 0): [Blog!]!
+    blogs(limit: Int! = 20, offset: Int! = 0, filter: BlogFilter): [Blog!]!
+    organisations(limit: Int! = 20, offset: Int! = 0): [Organisation!]!
   }
 `;
