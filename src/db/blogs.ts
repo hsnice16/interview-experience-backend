@@ -1,6 +1,6 @@
 export const blogs = [
   {
-    _id: "blog_001",
+    _id: "blog_000",
     author: {
       name: "Jatin Narula",
       profile: "https://www.linkedin.com/in/jatinnarula1996/",
@@ -10,7 +10,7 @@ export const blogs = [
     forOrganisation: "Google",
   },
   {
-    _id: "blog_002",
+    _id: "blog_001",
     author: {
       name: "Chaitanya Gupta",
       profile: "https://www.linkedin.com/in/chaitanya-gupta-08a95118b/",
@@ -20,7 +20,7 @@ export const blogs = [
     forOrganisation: "Amazon",
   },
   {
-    _id: "blog_003",
+    _id: "blog_002",
     author: {
       name: "Riti Nema",
       profile: "https://www.linkedin.com/in/riti-nema-707b1719b/",
@@ -30,7 +30,7 @@ export const blogs = [
     forOrganisation: "Atlassian",
   },
   {
-    _id: "blog_004",
+    _id: "blog_003",
     author: {
       name: "Raghav Bang",
       profile: "https://www.linkedin.com/in/raghavbang/",
@@ -40,7 +40,7 @@ export const blogs = [
     forOrganisation: "FactSet",
   },
   {
-    _id: "blog_005",
+    _id: "blog_004",
     author: {
       name: "Anurag Hazra",
       profile: "https://www.linkedin.com/in/anuraghazra/",
@@ -50,7 +50,7 @@ export const blogs = [
     forOrganisation: "Razorpay",
   },
   {
-    _id: "blog_006",
+    _id: "blog_005",
     author: {
       name: "Yashika Jothwani",
       profile: "https://www.linkedin.com/in/yashika-jothwani-03a0061b7/",

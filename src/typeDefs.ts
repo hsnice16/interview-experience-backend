@@ -7,7 +7,21 @@ export const typeDefs = `#graphql
     author: Author!
   }
 
+  type NewBlog {
+    _id: ID!
+    title: String!
+    link: String!
+    forOrganisation: String!
+    author: Author!
+    status: String!
+  }
+
   type Author {
+    name: String!
+    profile: String!
+  }
+
+  input NewAuthor {
     name: String!
     profile: String!
   }
@@ -25,5 +39,11 @@ export const typeDefs = `#graphql
   type Query {
     blogs(limit: Int! = 20, offset: Int! = 0, filter: BlogFilter): [Blog!]!
     organisations(limit: Int! = 20, offset: Int! = 0): [Organisation!]!
+    stagingBlogs(status: String!): [NewBlog!]!
+  }
+
+  type Mutation {
+    createBlog(title: String!, link: String!, forOrganisation: String!, author: NewAuthor!): NewBlog!
+    updateBlogStatus(_id: ID!, status: String!): NewBlog!
   }
 `;
