@@ -1,4 +1,4 @@
-export const organisations = [
+export const organizations = [
   {
     _id: "org_000",
     name: "Google",

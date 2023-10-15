@@ -3,7 +3,7 @@ export const typeDefs = `#graphql
     _id: ID!
     title: String!
     link: String!
-    forOrganisation: String!
+    forOrganization: String!
     author: Author!
   }
 
@@ -11,7 +11,7 @@ export const typeDefs = `#graphql
     _id: ID!
     title: String!
     link: String!
-    forOrganisation: String!
+    forOrganization: String!
     author: Author!
     status: String!
   }
@@ -26,24 +26,24 @@ export const typeDefs = `#graphql
     profile: String!
   }
 
-  type Organisation {
+  type Organization {
     _id: ID!
     name: String!
     blogCount: Int!
   }
 
   input BlogFilter {
-    forOrganisation: String!
+    forOrganization: String!
   }
 
   type Query {
     blogs(limit: Int! = 20, offset: Int! = 0, filter: BlogFilter): [Blog!]!
-    organisations(limit: Int! = 20, offset: Int! = 0): [Organisation!]!
-    stagingBlogs(status: String!): [NewBlog!]!
+    organizations(limit: Int! = 20, offset: Int! = 0): [Organization!]!
+    stagingBlogs(messageCode: String!, status: String!): [NewBlog!]!
   }
 
   type Mutation {
-    createBlog(title: String!, link: String!, forOrganisation: String!, author: NewAuthor!): NewBlog!
-    updateBlogStatus(_id: ID!, status: String!): NewBlog!
+    createBlog(messageCode: String!, title: String!, link: String!, forOrganization: String!, author: NewAuthor!): NewBlog!
+    updateBlogStatus(messageCode: String!, _id: ID!, status: String!): NewBlog!
   }
 `;

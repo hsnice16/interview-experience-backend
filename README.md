@@ -1,12 +1,25 @@
-# Interview Experience Backend
+<div align="center">
+
+<img alt="interview experience logo" src="IE.png" width="150px" height="150px" />
+
+# ✨ Interview Experience Backend
 
 Backend for Interview Experience
 
+![Forks](https://img.shields.io/github/forks/hsnice16/interview-experience-backend)
+![Stars](https://img.shields.io/github/stars/hsnice16/interview-experience-backend)
+![GraphQL](https://img.shields.io/badge/graphql-f6009b?logo=graphql)
+![Node.JS](https://img.shields.io/badge/node.js-046e01?logo=node.js)
+![TypeScript](https://img.shields.io/badge/typescript-gray?logo=typescript)
+
+</div>
+
 ---
 
-## Query
+## 👀 Query
 
-1. Get all the Blogs.
+<details open>
+<summary>1. Get all the blogs.</summary>
 
 ```graphql
 query Query {
@@ -16,14 +29,17 @@ query Query {
       name
       profile
     }
-    forOrganisation
+    forOrganization
     link
     title
   }
 }
 ```
 
-2. Get all the Blogs for an Organisation.
+</details>
+
+<details>
+<summary>2. Get all the blogs for an organization.</summary>
 
 ```graphql
 query Query($filter: BlogFilter) {
@@ -33,7 +49,7 @@ query Query($filter: BlogFilter) {
       profile
     }
     _id
-    forOrganisation
+    forOrganization
     link
     title
   }
@@ -41,12 +57,15 @@ query Query($filter: BlogFilter) {
 
 {
   "filter": {
-    "forOrganisation": "Google"
+    "forOrganization": "Google"
   }
 }
 ```
 
-3. Get paginated Blogs.
+</details>
+
+<details>
+<summary>3. Get paginated blogs.</summary>
 
 ```graphql
 query Query($limit: Int!, $offset: Int!) {
@@ -56,7 +75,7 @@ query Query($limit: Int!, $offset: Int!) {
       profile
     }
     _id
-    forOrganisation
+    forOrganization
     link
     title
   }
@@ -68,11 +87,14 @@ query Query($limit: Int!, $offset: Int!) {
 }
 ```
 
-4. Get all the Organisations.
+</details>
+
+<details>
+<summary>4. Get all the organizations.</summary>
 
 ```graphql
 query Query {
-  organisations {
+  organizations {
     _id
     blogCount
     name
@@ -80,11 +102,14 @@ query Query {
 }
 ```
 
-5. Get paginated Organisations.
+</details>
+
+<details>
+<summary>5. Get paginated organizations.</summary>
 
 ```graphql
 query Query($offset: Int!, $limit: Int!) {
-  organisations(offset: $offset, limit: $limit) {
+  organizations(offset: $offset, limit: $limit) {
     _id
     blogCount
     name
@@ -97,7 +122,10 @@ query Query($offset: Int!, $limit: Int!) {
 }
 ```
 
-6. Get staging Blogs.
+</details>
+
+<details>
+<summary>6. Get staging blogs.</summary>
 
 ```graphql
 query Query($status: String!) {
@@ -107,7 +135,7 @@ query Query($status: String!) {
       name
       profile
     }
-    forOrganisation
+    forOrganization
     status
     link
     title
@@ -119,23 +147,26 @@ query Query($status: String!) {
 }
 ```
 
+</details>
+
 ---
 
-## Mutation
+## 🏗️ Mutation
 
-1. Create a new Blog.
+<details open>
+<summary>1. Create a new blog.</summary>
 
 ```graphql
 mutation Mutation(
   $title: String!
   $link: String!
-  $forOrganisation: String!
+  $forOrganization: String!
   $author: NewAuthor!
 ) {
   createBlog(
     title: $title
     link: $link
-    forOrganisation: $forOrganisation
+    forOrganization: $forOrganization
     author: $author
   ) {
     _id
@@ -144,7 +175,7 @@ mutation Mutation(
       name
       profile
     }
-    forOrganisation
+    forOrganization
     link
     title
   }
@@ -153,7 +184,7 @@ mutation Mutation(
 {
   "title": "blog-title",
   "link": "blog-link",
-  "forOrganisation": "blog-forOrganisation",
+  "forOrganization": "blog-forOrganization",
   "author": {
     "name": "author-name",
     "profile": "author-profile"
@@ -161,7 +192,10 @@ mutation Mutation(
 }
 ```
 
-2. Update the new Blog status.
+</details>
+
+<details>
+<summary>2. Update the new blog status.</summary>
 
 ```graphql
 mutation CreateBlog($id: ID!, $status: String!) {
@@ -171,7 +205,7 @@ mutation CreateBlog($id: ID!, $status: String!) {
       name
       profile
     }
-    forOrganisation
+    forOrganization
     link
     status
     title
@@ -183,6 +217,8 @@ mutation CreateBlog($id: ID!, $status: String!) {
   "status": "rejected"
 }
 ```
+
+</details>
 
 ---
 

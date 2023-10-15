@@ -12,13 +12,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "@apollo/server": "4.9.4",
-    "graphql": "16.8.1"
+    "graphql": "16.8.1",
+    "nodejs-jsencrypt": "3.0.0-rc.1"
   },
   "devDependencies": {
     "@types/node": "20.8.5",
+    "dotenv": "16.3.1",
     "ts-node-dev": "1.1.8",
     "typescript": "5.2.2"
   }
