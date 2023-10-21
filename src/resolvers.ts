@@ -87,7 +87,7 @@ export const resolvers = {
 
       logger("Blogs query return in range [offset, offset + limit) started!");
 
-      return blogs.slice(args.offset, args.offset + args.limit);
+      return [...blogs].reverse().slice(args.offset, args.offset + args.limit);
     },
 
     organizations: function (_, args) {
