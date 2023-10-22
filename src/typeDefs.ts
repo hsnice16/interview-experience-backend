@@ -38,7 +38,7 @@ export const typeDefs = `#graphql
 
   type Query {
     blogs(limit: Int! = 20, offset: Int! = 0, filter: BlogFilter): [Blog!]!
-    organizations(limit: Int! = 20, offset: Int! = 0): [Organization!]!
+    organizations(limit: Int! = 1000, offset: Int! = 0): [Organization!]!
     stagingBlogs(messageCode: String!, status: String!): [NewBlog!]!
   }
 

@@ -16,5 +16,5 @@ export const organizations = [
   { _id: "org_0020", name: "Mercedes Benz", blogCount: 1 },
   { _id: "org_0021", name: "Coupang", blogCount: 1 },
   { _id: "org_0022", name: "Microsoft", blogCount: 1 },
-  { _id: "org_0024", name: "Ubar", blogCount: 1 },
+  { _id: "org_0024", name: "Uber", blogCount: 1 },
 ];
