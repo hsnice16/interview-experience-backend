@@ -250,7 +250,7 @@ export const blogs = [
     title:
       "Design Uber for specially-abled people? [Uber Product management Interview Experience]",
     link: "https://medium.com/@shailesh-sharma/design-uber-for-specially-abled-people-uber-product-management-interview-experience-f2ca9e124ccb",
-    forOrganization: "Ubar",
+    forOrganization: "Uber",
   },
   {
     _id: "blog_0025",

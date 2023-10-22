@@ -72,22 +72,24 @@ function checkAuthorization(messageCode: string) {
 export const resolvers = {
   Query: {
     blogs: function (_, args) {
-      if (args.filter?.forOrganization) {
-        logger("Blogs query return for given forOrganization started!");
-
-        return blogs.filter(
-          (blog) =>
-            blog.forOrganization.toLowerCase() ===
-            args.filter.forOrganization.toLowerCase()
-        );
-      }
-
       checkLimitValue(args.limit);
       checkOffsetValue(args.offset);
 
       logger("Blogs query return in range [offset, offset + limit) started!");
 
-      return [...blogs].reverse().slice(args.offset, args.offset + args.limit);
+      return [...blogs]
+        .reverse()
+        .filter((blog) => {
+          if (args.filter?.forOrganization) {
+            return (
+              blog.forOrganization.toLowerCase() ===
+              args.filter.forOrganization.toLowerCase()
+            );
+          }
+
+          return blog;
+        })
+        .slice(args.offset, args.offset + args.limit);
     },
 
     organizations: function (_, args) {
