@@ -198,7 +198,7 @@ mutation Mutation(
 <summary>2. Update the new blog status.</summary>
 
 ```graphql
-mutation CreateBlog($id: ID!, $status: String!) {
+mutation Mutation($id: ID!, $status: String!) {
   updateBlogStatus(_id: $id, status: $status) {
     _id
     author {
