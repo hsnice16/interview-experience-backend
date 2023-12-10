@@ -13,7 +13,7 @@ export async function getOrganisations(args) {
   logger("-- getOrganisations : END --");
 
   return organisations.map((organisation) => {
-    const { _id, blogsCount, name } = organisation;
-    return { _id, name, blogCount: blogsCount };
+    const { _id, blogscount, name } = organisation;
+    return { _id, name, blogCount: blogscount };
   });
 }

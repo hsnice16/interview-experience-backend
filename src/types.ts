@@ -1,7 +1,7 @@
 export type Organisation = {
   _id: string;
   name: string;
-  blogsCount: number;
+  blogscount: number;
 };
 
 export type Author = {
