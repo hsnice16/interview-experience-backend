@@ -42,7 +42,7 @@ export async function updateBlogStatus(args) {
   const organisation = await Organisations.find(blog.organisation_name);
   let organisationId = organisation?._id;
 
-  if (!organisation) {
+  if (organisation) {
     await Organisations.update(organisationId, organisation.blogsCount + 1);
   } else {
     const { _id } = await Organisations.insert(blog.organisation_name, 1);
