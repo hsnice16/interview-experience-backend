@@ -43,7 +43,7 @@ export async function updateBlogStatus(args) {
   let organisationId = organisation?._id;
 
   if (organisation) {
-    await Organisations.update(organisationId, organisation.blogsCount + 1);
+    await Organisations.update(organisationId, organisation.blogscount + 1);
   } else {
     const { _id } = await Organisations.insert(blog.organisation_name, 1);
     organisationId = _id;
