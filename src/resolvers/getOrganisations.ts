@@ -12,5 +12,8 @@ export async function getOrganisations(args) {
 
   logger("-- getOrganisations : END --");
 
-  return organisations;
+  return organisations.map((organisation) => {
+    const { _id, blogsCount, name } = organisation;
+    return { _id, name, blogCount: blogsCount };
+  });
 }
