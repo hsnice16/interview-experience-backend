@@ -15,7 +15,8 @@
   "dependencies": {
     "@apollo/server": "4.9.4",
     "graphql": "16.8.1",
-    "nodejs-jsencrypt": "3.0.0-rc.1"
+    "nodejs-jsencrypt": "3.0.0-rc.1",
+    "pg": "8.11.3"
   },
   "devDependencies": {
     "@types/node": "20.8.5",
