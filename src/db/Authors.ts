@@ -10,7 +10,8 @@ export const Authors = {
     name: string,
     profile: string
   ): Promise<{ _id: string } | undefined> {
-    const text = "SELECT _id FROM authors WHERE name = $1 AND profile = $2";
+    const text =
+      "SELECT _id FROM authors WHERE LOWER(name) = LOWER($1) AND LOWER(profile) = LOWER($2)";
     const values = [name, profile];
 
     logger("--- Authors : DB call to find the author : START ---");

@@ -8,7 +8,7 @@ export const Organisations = {
    */
 
   find: async function (name: string): Promise<Organisation | undefined> {
-    const text = "SELECT * FROM organisations WHERE name = $1";
+    const text = "SELECT * FROM organisations WHERE LOWER(name) = LOWER($1)";
     const values = [name];
 
     logger("--- Organisations : DB call to find the organisation : START ---");

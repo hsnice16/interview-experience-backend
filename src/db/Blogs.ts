@@ -21,11 +21,11 @@ export const Blogs = {
         )
         AS blogs_org 
         JOIN authors ON author = authors._id
-        WHERE title = $1
-        AND link = $2
-        AND organisation_name = $3
-        AND authors.name = $4
-        AND authors.profile = $5`;
+        WHERE LOWER(title) = LOWER($1)
+        AND LOWER(link) = LOWER($2)
+        AND LOWER(organisation_name) = LOWER($3)
+        AND LOWER(authors.name) = LOWER($4)
+        AND LOWER(authors.profile) = LOWER($5)`;
 
     const values = [title, link, organisationName, authorName, authorProfile];
 
