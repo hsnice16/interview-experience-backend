@@ -48,6 +48,7 @@ export const Blogs = {
     organisationName?: string
   ) {
     let text = "";
+    let values = [];
 
     if (organisationName) {
       text = `
@@ -63,6 +64,8 @@ export const Blogs = {
         )
         AS filtered_blogs_org
         JOIN authors ON author = authors._id`;
+
+      values = [limit, offset, organisationName];
     }
 
     if (!organisationName) {
@@ -78,9 +81,9 @@ export const Blogs = {
         )
         AS blogs_org 
         JOIN authors ON author = authors._id`;
-    }
 
-    const values = [limit, offset, organisationName];
+      values = [limit, offset];
+    }
 
     logger("--- Blogs : DB call to get the blogs : START ---");
 
