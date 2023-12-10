@@ -2,13 +2,13 @@ import { checkLimitValue, checkOffsetValue } from "./index";
 import { logger } from "../utils";
 import { Blogs } from "../db";
 
-export function getBlogs(args) {
+export async function getBlogs(args) {
   logger("-- getBlogs : START --");
 
   checkLimitValue(args.limit);
   checkOffsetValue(args.offset);
 
-  const blogs = Blogs.get(
+  const blogs = await Blogs.get(
     args.limit,
     args.offset,
     args.filter?.forOrganization
