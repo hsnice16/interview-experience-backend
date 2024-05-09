@@ -8,7 +8,7 @@ on:
       - .github/workflows/ping-server.yml
   schedule:
     # every 5 minutes
-    - core: "*/5 * * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
   ping:
