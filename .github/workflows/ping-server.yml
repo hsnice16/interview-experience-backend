@@ -7,8 +7,8 @@ on:
     paths:
       - .github/workflows/ping-server.yml
   schedule:
-    # every 5 minutes
-    - cron: "*/5 * * * *"
+    # every 14 minutes
+    - cron: "*/14 * * * *"
 
 jobs:
   ping:
