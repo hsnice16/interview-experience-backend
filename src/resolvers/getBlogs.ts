@@ -11,7 +11,8 @@ export async function getBlogs(args) {
   const blogs = await Blogs.get(
     args.limit,
     args.offset,
-    args.filter?.forOrganization
+    args.filter?.forOrganization,
+    args.filter?.searchKeywords
   );
 
   logger("-- getBlogs : END --");

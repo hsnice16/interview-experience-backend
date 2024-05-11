@@ -34,6 +34,7 @@ export const typeDefs = `#graphql
 
   input BlogFilter {
     forOrganization: String!
+    searchKeywords: [String!]!
   }
 
   type Query {

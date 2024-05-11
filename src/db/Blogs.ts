@@ -45,12 +45,34 @@ export const Blogs = {
   get: async function (
     limit: number,
     offset: number,
-    organisationName?: string
+    organisationName?: string,
+    searchKeywords?: string[]
   ) {
     let text = "";
     let values = [];
 
-    if (organisationName) {
+    if (organisationName || searchKeywords.length) {
+      let whereClause = "";
+      const searchKeywordsString = searchKeywords.reduce((acc, keyword) => {
+        const query = `LOWER(title) LIKE LOWER('%${keyword}%')`;
+        if (acc.length === 0) {
+          return query;
+        }
+
+        return acc + ` OR ${query}`;
+      }, "");
+
+      if (organisationName && searchKeywords.length) {
+        whereClause = `WHERE LOWER(organisation_name) = LOWER($3) AND (${searchKeywordsString})`;
+        values = [limit, offset, organisationName];
+      } else if (organisationName) {
+        whereClause = `WHERE LOWER(organisation_name) = LOWER($3)`;
+        values = [limit, offset, organisationName];
+      } else if (searchKeywords.length) {
+        whereClause = `WHERE ${searchKeywordsString}`;
+        values = [limit, offset];
+      }
+
       text = `
         SELECT _id, title, link, organisation_name, authors.name AS author_name, authors.profile AS author_profile
         FROM (
@@ -59,16 +81,12 @@ export const Blogs = {
             FROM blogs JOIN organisations ON organisation = organisations._id
           )
           AS blogs_org 
-          WHERE organisation_name = $3
+          ${whereClause}
           LIMIT $1 OFFSET $2
         )
         AS filtered_blogs_org
         JOIN authors ON author = authors._id`;
-
-      values = [limit, offset, organisationName];
-    }
-
-    if (!organisationName) {
+    } else {
       text = `
         SELECT _id, title, link, organisation_name, authors.name AS author_name, authors.profile AS author_profile
         FROM (
