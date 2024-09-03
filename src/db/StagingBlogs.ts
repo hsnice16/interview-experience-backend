@@ -98,7 +98,7 @@ export const StagingBlogs = {
 
   update: async function (_id: string, status: string): Promise<StagingBlog> {
     const text =
-      "UPDATE staging_blogs SET pending = $1 WHERE _id = $2 RETURNING *";
+      "UPDATE staging_blogs SET status = $1 WHERE _id = $2 RETURNING *";
 
     const values = [status, _id];
 

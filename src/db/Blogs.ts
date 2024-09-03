@@ -51,7 +51,7 @@ export const Blogs = {
     let text = "";
     let values = [];
 
-    if (organisationName || searchKeywords.length) {
+    if (organisationName || searchKeywords?.length) {
       let whereClause = "";
       const searchKeywordsString = searchKeywords.reduce((acc, keyword) => {
         const query = `LOWER(title) LIKE LOWER('%${keyword}%')`;
