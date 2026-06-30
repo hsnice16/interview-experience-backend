@@ -74,13 +74,13 @@ export const Blogs = {
       }
 
       text = `
-        SELECT _id, title, link, organisation_name, authors.name AS author_name, authors.profile AS author_profile
+        SELECT filtered_blogs_org._id, title, link, organisation_name, authors.name AS author_name, authors.profile AS author_profile
         FROM (
           SELECT * FROM (
-            SELECT title, link, organisations.name AS organisation_name, author 
+            SELECT blogs._id AS _id, title, link, organisations.name AS organisation_name, author
             FROM blogs JOIN organisations ON organisation = organisations._id
           )
-          AS blogs_org 
+          AS blogs_org
           ${whereClause}
           LIMIT $1 OFFSET $2
         )
@@ -88,16 +88,16 @@ export const Blogs = {
         JOIN authors ON author = authors._id`;
     } else {
       text = `
-        SELECT _id, title, link, organisation_name, authors.name AS author_name, authors.profile AS author_profile
+        SELECT blogs_org._id, title, link, organisation_name, authors.name AS author_name, authors.profile AS author_profile
         FROM (
-            SELECT title, link, organisations.name AS organisation_name, author 
+            SELECT sliced_blogs._id AS _id, title, link, organisations.name AS organisation_name, author
             FROM (
               SELECT * FROM blogs LIMIT $1 OFFSET $2
             )
             AS sliced_blogs
             JOIN organisations ON organisation = organisations._id
         )
-        AS blogs_org 
+        AS blogs_org
         JOIN authors ON author = authors._id`;
 
       values = [limit, offset];
